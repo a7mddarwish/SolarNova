@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact SolarNova Energy - Get a free consultation in renewable energy">
+    <title>Contact Us - SolarNova Energy</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(52, 104, 192, 0.75) 100%),
+                        url('assets/images/contact-header-bg.jpg') center/cover no-repeat;
+            padding: 120px 0 80px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            justify-content: center;
+            margin-bottom: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb-item {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--white);
+        }
+        
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '›';
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .contact-info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        
+        .contact-info-content h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .contact-info-content p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .contact-info-content a {
+            color: var(--primary);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .contact-info-content a:hover {
+            color: var(--dark-blue);
+        }
+        
+        /* Working Hours */
+        .working-hours {
+            background: linear-gradient(135deg, rgba(255, 152, 67, 0.1), rgba(255, 221, 149, 0.1));
+            padding: 25px;
+            border-radius: var(--radius-md);
+            margin-top: 30px;
+        }
+        
+        .working-hours h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .working-hours h4 i {
+            color: var(--primary);
+        }
+        
+        .working-hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .working-hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 15px;
+            color: var(--gray);
+        }
+        
+        .working-hours-list li span:first-child {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: var(--white);
+            padding: 50px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-form h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .contact-form > p {
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 15px;
+        }
+        
+        .form-group label span {
+            color: #ef4444;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 152, 67, 0.1);
+        }
+        
+        .form-control.error {
+            border-color: #ef4444;
+        }
+        
+        .form-control.success {
+            border-color: #10b981;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-message {
+            padding: 15px 20px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 25px;
+            display: none;
+        }
+        
+        .form-message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        
+        .form-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 152, 67, 0.4);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        /* Quick Contact Cards */
+        .quick-contact-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .quick-contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .quick-contact-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .quick-contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .quick-contact-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+            color: var(--white);
+        }
+        
+        .quick-contact-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .quick-contact-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .quick-contact-card .btn {
+            width: 100%;
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 0;
+            margin-top: 80px;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 500px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* FAQ Quick */
+        .faq-quick-section {
+            padding: 80px 0;
+        }
+        
+        .faq-quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .faq-quick-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .faq-quick-item h4 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-quick-item h4 i {
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .faq-quick-item p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                position: static;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Top Bar ===== -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@solarnova.com">info@solarnova.com</a>
+                </div>
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+966123456789">+966 12 345 6789</a>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="contact.html">العربية</a>
+                    <a href="contact-en.html" class="active">English</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Header / Navbar ===== -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index-en.html" class="logo">
+                    <div class="logo-text">
+                        <span class="main">SolarNova</span>
+                        <span class="sub">RENEWABLE ENERGY</span>
+                    </div>
+                </a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index-en.html">Home</a></li>
+                    <li><a href="about-en.html">About</a></li>
+                    <li><a href="services-en.html">Services</a></li>
+                    <li><a href="projects-en.html">Projects</a></li>
+                    <li><a href="blogs-en.html">Blog</a></li>
+                    <li><a href="contact-en.html" class="nav-cta active">Contact Us</a></li>
+                </ul>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== Page Header ===== -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Contact Us</h1>
+            <p data-aos="fade-up" data-aos-delay="100">
+                We're here to answer all your questions and help you get the best energy solutions
+            </p>
+            <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-en.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ===== Contact Section ===== -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Our Address</h4>
+                            <p>
+                                King Fahd Road, Al Olaya<br>
+                                Riyadh 12211, Saudi Arabia
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Call Us</h4>
+                            <p>
+                                <a href="tel:+966123456789">+966 12 345 6789</a><br>
+                                <a href="tel:+966987654321">+966 98 765 4321</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Email Us</h4>
+                            <p>
+                                <a href="mailto:info@solarnova.com">info@solarnova.com</a><br>
+                                <a href="mailto:support@solarnova.com">support@solarnova.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>WhatsApp</h4>
+                            <p>
+                                <a href="https://wa.me/966123456789" target="_blank">+966 12 345 6789</a><br>
+                                <span style="font-size: 14px; color: var(--gray);">Available 24/7 for quick response</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Working Hours -->
+                    <div class="working-hours">
+                        <h4>
+                            <i class="fas fa-clock"></i>
+                            Working Hours
+                        </h4>
+                        <ul class="working-hours-list">
+                            <li>
+                                <span>Sunday - Thursday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </li>
+                            <li>
+                                <span>Friday</span>
+                                <span>Closed</span>
+                            </li>
+                            <li>
+                                <span>Saturday</span>
+                                <span>10:00 AM - 4:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form" data-aos="fade-left">
+                    <h3>Send Us a Message</h3>
+                    <p>Fill out the form below and we'll respond as soon as possible (usually within 24 hours)</p>
+                    
+                    <div class="form-message success" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        Your message has been sent successfully! We'll contact you soon.
+                    </div>
+                    
+                    <div class="form-message error" id="errorMessage">
+                        <i class="fas fa-exclamation-circle"></i>
+                        An error occurred while sending. Please try again.
+                    </div>
+                    
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name <span>*</span></label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span>*</span></label>
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="+966 5XXXXXXXX" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address <span>*</span></label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="example@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject <span>*</span></label>
+                                <select id="subject" name="subject" class="form-control" required>
+                                    <option value="">Select Subject</option>
+                                    <option value="consultation">Free Consultation</option>
+                                    <option value="quote">Request Quote</option>
+                                    <option value="maintenance">Maintenance Services</option>
+                                    <option value="complaint">Complaint or Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message <span>*</span></label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Quick Contact ===== -->
+    <section class="quick-contact-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Quick Contact Methods</span>
+                <h2 class="section-title">Choose the Most Convenient Way</h2>
+                <p class="section-description">
+                    We offer you several ways to contact us easily and quickly
+                </p>
+            </div>
+            
+            <div class="quick-contact-grid">
+                <div class="quick-contact-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="quick-contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us Directly</h3>
+                    <p>Speak with one of our experts now for immediate consultation</p>
+                    <a href="tel:+966123456789" class="btn btn-primary">
+                        <i class="fas fa-phone"></i>
+                        Call Now
+                    </a>
+                </div>
+                
+                <div class="quick-contact-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="quick-contact-icon" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Message us on WhatsApp for a quick response anytime</p>
+                    <a href="https://wa.me/966123456789" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        Open WhatsApp
+                    </a>
+                </div>
+                
+                <div class="quick-contact-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="quick-contact-icon" style="background: linear-gradient(135deg, #3b5998 0%, #2d4373 100%);">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>Send us your inquiry and we'll respond within 24 hours</p>
+                    <a href="mailto:info@solarnova.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Send Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Map Section ===== -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Our Location</span>
+                <h2 class="section-title">Visit Our Main Office</h2>
+                <p class="section-description">
+                    We'd be happy to welcome you to our Riyadh office (prior appointment preferred)
+                </p>
+            </div>
+            
+            <div class="map-container" data-aos="fade-up" data-aos-delay="200">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.0987267644183!2d46.67185231500245!3d24.71394758410739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03cdfca85c01%3A0x53049e94c6f7e3be!2sKing%20Fahd%20Road%2C%20Al%20Olaya%2C%20Riyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ Quick ===== -->
+    <section class="faq-quick-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Quick Questions</span>
+                <h2 class="section-title">FAQs About Contact</h2>
+            </div>
+            
+            <div class="faq-quick-grid">
+                <div class="faq-quick-item" data-aos="fade-up" data-aos-delay="100">
+                    <h4>
+                        <i class="fas fa-clock"></i>
+                        How long does it take to respond to inquiries?
+                    </h4>
+                    <p>We respond to all inquiries within 24 hours maximum, and in emergency cases we provide immediate support via phone.</p>
+                </div>
+                
+                <div class="faq-quick-item" data-aos="fade-up" data-aos-delay="200">
+                    <h4>
+                        <i class="fas fa-calendar"></i>
+                        Can I book an appointment to visit?
+                    </h4>
+                    <p>Absolutely! You can book an appointment by calling us or filling out the form, and we'll arrange a site visit or receive you at our office.</p>
+                </div>
+                
+                <div class="faq-quick-item" data-aos="fade-up" data-aos-delay="300">
+                    <h4>
+                        <i class="fas fa-file-invoice"></i>
+                        How do I get a quote?
+                    </h4>
+                    <p>Call us or fill out the form above selecting "Request Quote" and we'll send you a detailed quote within 48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA Section ===== -->
+    <section class="cta-section">
+        <div class="cta-content" data-aos="fade-up">
+            <h2>Ready to Start Your Project?</h2>
+            <p>
+                Don't hesitate to contact us now. Our team is ready to help you
+            </p>
+            <div class="hero-buttons">
+                <a href="tel:+966123456789" class="btn btn-primary">
+                    <i class="fas fa-phone"></i>
+                    Call Us Now
+                </a>
+                <a href="https://wa.me/966123456789" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <a href="index-en.html" class="logo" style="color: white; margin-bottom: 20px; display: inline-block;">
+                        <div class="logo-text">
+                            <span class="main" style="color: var(--secondary);">SolarNova</span>
+                            <span class="sub">RENEWABLE ENERGY</span>
+                        </div>
+                    </a>
+                    <p>
+                        We are a leading company in renewable energy, striving to provide clean and sustainable energy solutions that contribute to building a better future for generations to come.
+                    </p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index-en.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about-en.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="projects-en.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="blogs-en.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-section">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Solar Energy</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Wind Energy</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Energy Storage</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Maintenance</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact-section">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Riyadh, Saudi Arabia</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+966 12 345 6789</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@solarnova.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Sun - Thu: 8AM - 6PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 SolarNova Energy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Form Validation & Submission
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Get form values
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Simple validation
+            let isValid = true;
+            const inputs = contactForm.querySelectorAll('.form-control');
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.classList.add('error');
+                    input.classList.remove('success');
+                    isValid = false;
+                } else {
+                    input.classList.remove('error');
+                    input.classList.add('success');
+                }
+            });
+            
+            // Email validation
+            const emailInput = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailInput.classList.add('error');
+                emailInput.classList.remove('success');
+                isValid = false;
+            }
+            
+            // Phone validation
+            const phoneInput = document.getElementById('phone');
+            const phoneRegex = /^(\+966|966|0)?5[0-9]{8}$/;
+            if (!phoneRegex.test(phoneInput.value.replace(/\s/g, ''))) {
+                phoneInput.classList.add('error');
+                phoneInput.classList.remove('success');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Disable submit button
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                
+                // Simulate API call (replace with actual API endpoint)
+                setTimeout(() => {
+                    console.log('Form Data:', formData);
+                    
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    inputs.forEach(input => {
+                        input.classList.remove('success');
+                    });
+                    
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Send Message</span>';
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 1500);
+            } else {
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+        
+        // Remove error class on input
+        const formInputs = contactForm.querySelectorAll('.form-control');
+        formInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                this.classList.remove('error');
+            });
+        });
+    </script>
+</body>
+</html>

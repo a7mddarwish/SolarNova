@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="مدونة سولار نوفا - أحدث المقالات والأخبار في مجال الطاقة المتجددة والطاقة الشمسية">
+    <title>المدونة - سولار نوفا للطاقة المتجددة</title>
+    
+    <!-- Bootstrap 5 RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-rtl.css">
+    
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(52, 104, 192, 0.75) 100%),
+                        url('assets/images/blog-header-bg.jpg') center/cover no-repeat;
+            padding: 120px 0 80px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            justify-content: center;
+            margin-bottom: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb-item {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--white);
+        }
+        
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '‹';
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Blog Section */
+        .blog-section {
+            padding: 80px 0;
+        }
+        
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 50px;
+        }
+        
+        /* Blog Posts */
+        .blog-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 0;
+        }
+        
+        .blog-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        
+        .blog-category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        
+        .blog-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .blog-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .blog-meta-item i {
+            color: var(--primary);
+        }
+        
+        .blog-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+        
+        .blog-content h3 a {
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .blog-content h3 a:hover {
+            color: var(--primary);
+        }
+        
+        .blog-excerpt {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .blog-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info span {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            gap: 12px;
+            color: var(--dark-blue);
+        }
+        
+        /* Sidebar */
+        .blog-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar-widget {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-widget h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--dark);
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        /* Search Widget */
+        .search-form {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 14px 50px 14px 18px;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            transition: var(--transition);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .search-btn {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        /* Categories Widget */
+        .categories-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .categories-list li {
+            margin-bottom: 12px;
+        }
+        
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: var(--radius-sm);
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .categories-list a:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .categories-list a span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .category-count {
+            background: var(--white);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .categories-list a:hover .category-count {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+        
+        /* Popular Posts Widget */
+        .popular-posts-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .popular-post-item {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .popular-post-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .popular-post-image {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .popular-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .popular-post-item:hover .popular-post-image img {
+            transform: scale(1.1);
+        }
+        
+        .popular-post-content h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .popular-post-content h4 a {
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .popular-post-content h4 a:hover {
+            color: var(--primary);
+        }
+        
+        .popular-post-date {
+            font-size: 13px;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .popular-post-date i {
+            color: var(--primary);
+        }
+        
+        /* Tags Widget */
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag-item {
+            padding: 8px 18px;
+            background: #f8f9fa;
+            border-radius: 50px;
+            font-size: 14px;
+            color: var(--dark);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .tag-item:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        /* Pagination */
+        .pagination-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+        
+        .pagination {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pagination li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--white);
+            color: var(--dark);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .pagination li a:hover,
+        .pagination li.active a {
+            background: var(--gradient-primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Newsletter Widget */
+        .newsletter-widget {
+            background: var(--gradient-blue);
+            color: var(--white);
+        }
+        
+        .newsletter-widget h3 {
+            color: var(--white);
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .newsletter-widget p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+        
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--white);
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 14px;
+            background: var(--white);
+            color: var(--dark-blue);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .newsletter-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-sidebar {
+                position: static;
+            }
+            
+            .blog-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-image {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .blog-content {
+                padding: 25px;
+            }
+            
+            .blog-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Top Bar ===== -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@solarnova.com">info@solarnova.com</a>
+                </div>
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+966123456789">+966 12 345 6789</a>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="blogs.html" class="active">العربية</a>
+                    <a href="blogs-en.html">English</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Header / Navbar ===== -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-text">
+                        <span class="main">سولار نوفا</span>
+                        <span class="sub">للطاقة المتجددة</span>
+                    </div>
+                </a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="services.html">خدماتنا</a></li>
+                    <li><a href="projects.html">مشاريعنا</a></li>
+                    <li><a href="blogs.html" class="active">المدونة</a></li>
+                    <li><a href="contact.html" class="nav-cta">تواصل معنا</a></li>
+                </ul>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== Page Header ===== -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">مدونة الطاقة المتجددة</h1>
+            <p data-aos="fade-up" data-aos-delay="100">
+                أحدث المقالات والأخبار والنصائح في عالم الطاقة الشمسية والمتجددة
+            </p>
+            <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">المدونة</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ===== Blog Section ===== -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Blog Posts -->
+                <div class="blog-posts">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card" data-aos="fade-up">
+                        <div class="blog-image">
+                            <span class="blog-category-badge">طاقة شمسية</span>
+                            <img src="assets/images/blog/solar-panels-future.jpg" alt="مستقبل الطاقة الشمسية">
+                        </div>
+                        <div class="blog-content">
+                            <div>
+                                <div class="blog-meta">
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-calendar"></i>
+                                        15 يناير 2024
+                                    </span>
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-clock"></i>
+5 دقائق قراءة                                     </span>
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-comments"></i>
+                                        24 تعليق
+                                    </span>
+                                </div>
+                                <h3>
+                                    <a href="#">مستقبل الطاقة الشمسية في السعودية: فرص وتحديات 2024</a>
+                                </h3>
+                                <p class="blog-excerpt">
+                                    تشهد المملكة العربية السعودية تحولًا كبيرًا نحو الطاقة المتجددة، خاصة الطاقة الشمسية. 
+                                    نستعرض في هذا المقال أبرز التوجهات والفرص الاستثمارية المتاحة في قطاع الطاقة الشمسية...
+                                </p>
+                            </div>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-avatar">
+                                        <img src="assets/images/team/author-1.jpg" alt="أحمد السالم">
+                                    </div>
+                                    <div class="author-info">
+                                        <span>أحمد السالم</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="read-more">
+                                    اقرأ المزيد
+                                    <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="blog-image">
+                            <span class="blog-category-badge">توفير الطاقة</span>
+                            <img src="assets/images/blog/energy-saving.jpg" alt="توفير الطاقة">
+                        </div>
+                        <div class="blog-content">
+                            <div>
+                                <div class="blog-meta">
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-calendar"></i>
+                                        10 يناير 2024
+                                    </span>
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        7 دقائق قراءة
+                                    </span>
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-comments"></i>
+                                        18 تعليق
+                                    </span>
+                                </div>
+                                <h3>
+                                    <a href="#">10 طرق فعّالة لتقليل فاتورة الكهرباء في منزلك</a>
+                                </h3>
+                                <p class="blog-excerpt">
+                                    يبحث الكثيرون عن طرق لتوفير استهلاك الكهرباء وتقليل الفواتير الشهرية. 
+                                    في هذا المقال، نقدم لك 10 نصائح عملية يمكن تطبيقها فورًا لتحقيق توفير ملموس...
+                                </p>
+                            </div>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-avatar">
+                                        <img src="assets/images/team/author-2.jpg" alt="فاطمة المطيري">
+                                    </div>
+                                    <div class="author-info">
+                                        <span>فاطمة المطيري</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="read-more">
+                                    اقرأ المزيد
+                                    <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="blog-image">
+                            <span class="blog-category-badge">تقنيات حديثة</span>
+                            <img src="assets/images/blog/battery-storage.jpg" alt="تخزين الطاقة">
+                        </div>
+                        <div class="blog-content">
+                            <div>
+                                <div class="blog-meta">
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-calendar"></i>
+                                        5 يناير 2024
+                                    </span>
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        6 دقائق قراءة
+                                    </span>
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-comments"></i>
+                                        32 تعليق
+                                    </span>
+                                </div>
+                                <h3>
+                                    <a href="#">تقنيات تخزين الطاقة الشمسية: الحاضر والمستقبل</a>
+                                </h3>
+                                <p class="blog-excerpt">
+                                    تُعد البطاريات المتقدمة حجر الزاوية في أنظمة الطاقة الشمسية الحديثة. 
+                                    نستعرض أحدث التقنيات في مجال تخزين الطاقة وكيف تساهم في تحسين كفاءة الأنظمة...
+                                </p>
+                            </div>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-avatar">
+                                        <img src="assets/images/team/author-3.jpg" alt="خالد الغامدي">
+                                    </div>
+                                    <div class="author-info">
+                                        <span>خالد الغامدي</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="read-more">
+                                    اقرأ المزيد
+                                    <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 4 -->
+                    <article class="blog-card" data-aos="fade-up">
+                        <div class="blog-image">
+                            <span class="blog-category-badge">دراسات حالة</span>
+                            <img src="assets/images/blog/case-study.jpg" alt="دراسة حالة">
+                        </div>
+                        <div class="blog-content">
+                            <div>
+                                <div class="blog-meta">
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-calendar"></i>
+                                        28 ديسمبر 2023
+                                    </span>
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        8 دقائق قراءة
+                                    </span>
+                                    <span class="blog-meta-item">
+                                        <i class="fas fa-comments"></i>
+                                        15 تعليق
+                                    </span>
+                                </div>
+                                <h3>
+                                    <a href="#">كيف وفّرت إحدى الشركات 65% من تكاليف الطاقة؟</a>
+                                </h3>
+                                <p class="blog-excerpt">
+                                    دراسة حالة واقعية لشركة صناعية تحولت للطاقة الشمسية. نستعرض التحديات التي واجهتها، 
+                                    الحلول المُطبقة، والنتائج المذهلة التي حققتها خلال عام واحد...
+                                </p>
+                            </div>
+                            <div class="blog-footer">
+                                <div class="blog-author">
+                                    <div class="author-avatar">
+                                        <img src="assets/images/team/author-1.jpg" alt="أحمد السالم">
+                                    </div>
+                                    <div class="author-info">
+                                        <span>أحمد السالم</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="read-more">
+                                    اقرأ المزيد
+                                    <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Pagination -->
+                    <div class="pagination-wrapper">
+                        <ul class="pagination">
+                            <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-left"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Search Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left">
+                        <h3>ابحث في المدونة</h3>
+                        <form class="search-form">
+                            <input type="text" class="search-input" placeholder="ابحث عن مقال...">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="100">
+                        <h3>التصنيفات</h3>
+                        <ul class="categories-list">
+                            <li>
+                                <a href="#">
+                                    <span>طاقة شمسية</span>
+                                    <span class="category-count">24</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>توفير الطاقة</span>
+                                    <span class="category-count">18</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>تقنيات حديثة</span>
+                                    <span class="category-count">15</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>دراسات حالة</span>
+                                    <span class="category-count">12</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>أخبار القطاع</span>
+                                    <span class="category-count">20</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>نصائح وإرشادات</span>
+                                    <span class="category-count">16</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Popular Posts Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="200">
+                        <h3>المقالات الأكثر قراءة</h3>
+                        <ul class="popular-posts-list">
+                            <li class="popular-post-item">
+                                <div class="popular-post-image">
+                                    <img src="assets/images/blog/popular-1.jpg" alt="مقال شائع">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4><a href="#">دليل شامل لاختيار الألواح الشمسية المناسبة</a></h4>
+                                    <span class="popular-post-date">
+                                        <i class="fas fa-calendar"></i>
+                                        20 ديسمبر 2023
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="popular-post-item">
+                                <div class="popular-post-image">
+                                    <img src="assets/images/blog/popular-2.jpg" alt="مقال شائع">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4><a href="#">كم تحتاج من الألواح الشمسية لمنزلك؟</a></h4>
+                                    <span class="popular-post-date">
+                                        <i class="fas fa-calendar"></i>
+                                        18 ديسمبر 2023
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="popular-post-item">
+                                <div class="popular-post-image">
+                                    <img src="assets/images/blog/popular-3.jpg" alt="مقال شائع">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4><a href="#">الفرق بين أنظمة On-Grid و Off-Grid</a></h4>
+                                    <span class="popular-post-date">
+                                        <i class="fas fa-calendar"></i>
+                                        15 ديسمبر 2023
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="300">
+                        <h3>الوسوم الشائعة</h3>
+                        <div class="tags-cloud">
+                            <a href="#" class="tag-item">طاقة شمسية</a>
+                            <a href="#" class="tag-item">توفير</a>
+                            <a href="#" class="tag-item">بطاريات</a>
+                            <a href="#" class="tag-item">رؤية 2030</a>
+                            <a href="#" class="tag-item">استدامة</a>
+                            <a href="#" class="tag-item">ألواح</a>
+                            <a href="#" class="tag-item">تركيب</a>
+                            <a href="#" class="tag-item">صيانة</a>
+                            <a href="#" class="tag-item">كفاءة</a>
+                            <a href="#" class="tag-item">تقنيات</a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget newsletter-widget" data-aos="fade-left" data-aos-delay="400">
+                        <h3>اشترك في نشرتنا</h3>
+                        <p>احصل على أحدث المقالات والنصائح مباشرة في بريدك</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="بريدك الإلكتروني" required>
+                            <button type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                                اشترك الآن
+                            </button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA Section ===== -->
+    <section class="cta-section">
+        <div class="cta-content" data-aos="fade-up">
+            <h2>هل لديك استفسار عن الطاقة المتجددة؟</h2>
+            <p>
+                فريقنا من الخبراء جاهز للإجابة على جميع أسئلتك ومساعدتك
+            </p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-phone"></i>
+                    تواصل معنا
+                </a>
+                <a href="services.html" class="btn btn-outline">
+                    خدماتنا
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <a href="index.html" class="logo" style="color: white; margin-bottom: 20px; display: inline-block;">
+                        <div class="logo-text">
+                            <span class="main" style="color: var(--secondary);">سولار نوفا</span>
+                            <span class="sub">للطاقة المتجددة</span>
+                        </div>
+                    </a>
+                    <p>
+                        نحن شركة رائدة في مجال الطاقة المتجددة، نسعى لتوفير حلول طاقة نظيفة ومستدامة تساهم في بناء مستقبل أفضل للأجيال القادمة.
+                    </p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-section">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-left"></i> خدماتنا</a></li>
+                        <li><a href="projects.html"><i class="fas fa-chevron-left"></i> مشاريعنا</a></li>
+                        <li><a href="blogs.html"><i class="fas fa-chevron-left"></i> المدونة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-section">
+                    <h4>خدماتنا</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html"><i class="fas fa-chevron-left"></i> الطاقة الشمسية</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-left"></i> طاقة الرياح</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-left"></i> تخزين الطاقة</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-left"></i> الصيانة</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-left"></i> الاستشارات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact-section">
+                    <h4>تواصل معنا</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الرياض، المملكة العربية السعودية</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span dir="ltr">+966 12 345 6789</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@solarnova.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>الأحد - الخميس: 8ص - 6م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 سولار نوفا للطاقة المتجددة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Newsletter Form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+             newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input').value;
+                alert('شكرًا لاشتراكك! سنرسل لك آخر المقالات على: ' + email);
+                this.reset();
+            });
+        }
+        
+        // Search Form
+        const searchForm = document.querySelector('.search-form');
+        if (searchForm) {
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const searchTerm = this.querySelector('.search-input').value;
+                alert('البحث عن: ' + searchTerm);
+            });
+        }
+    </script>
+</body>
+</html>

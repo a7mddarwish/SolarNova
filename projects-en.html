@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SolarNova's completed projects in solar and renewable energy - Over 500 successful projects">
+    <title>Our Projects - SolarNova Energy</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- GLightbox for Gallery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+     
+    <style>
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(52, 104, 192, 0.75) 100%),
+                        url('assets/images/projects-header-bg.jpg') center/cover no-repeat;
+            padding: 120px 0 80px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            justify-content: center;
+            margin-bottom: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb-item {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--white);
+        }
+        
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '›';
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Filter Section */
+        .filter-section {
+            padding: 60px 0 40px;
+            background: #f8f9fa;
+            position: sticky;
+            top: 78px;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 30px;
+            background: var(--white);
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        .filter-btn i {
+            font-size: 16px;
+        }
+        
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 0;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 35px;
+        }
+        
+        .project-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .project-card.hidden {
+            display: none;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(26, 26, 46, 0.9), rgba(52, 104, 192, 0.7));
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-overlay-btn {
+            background: var(--white);
+            color: var(--dark-blue);
+            padding: 12px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 14px;
+            transform: translateY(20px);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .project-card:hover .project-overlay-btn {
+            transform: translateY(0);
+        }
+        
+        .project-overlay-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .project-content h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+        
+        .project-content p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .project-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .project-meta-item i {
+            color: var(--primary);
+            font-size: 16px;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: var(--gradient-blue);
+            color: var(--white);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--white);
+            color: var(--dark-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 40px;
+            color: var(--primary);
+            opacity: 0.2;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-image {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 17px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: var(--primary);
+            margin: 0;
+        }
+        
+        .rating {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+        }
+        
+        .rating i {
+            color: #FDB913;
+            font-size: 14px;
+        }
+        
+        /* Load More Button */
+        .load-more-section {
+            text-align: center;
+            padding: 40px 0 0;
+        }
+        
+        .load-more-btn {
+            padding: 14px 40px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .load-more-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .filter-section {
+                position: static;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Top Bar ===== -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@solarnova.com">info@solarnova.com</a>
+                </div>
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+966123456789">+966 12 345 6789</a>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="projects.html">العربية</a>
+                    <a href="projects-en.html" class="active">English</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Header / Navbar ===== -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index-en.html" class="logo">
+                    <div class="logo-text">
+                        <span class="main">SolarNova</span>
+                        <span class="sub">RENEWABLE ENERGY</span>
+                    </div>
+                </a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index-en.html">Home</a></li>
+                    <li><a href="about-en.html">About</a></li>
+                    <li><a href="services-en.html">Services</a></li>
+                    <li><a href="projects-en.html" class="active">Projects</a></li>
+                    <li><a href="blogs-en.html">Blog</a></li>
+                    <li><a href="contact-en.html" class="nav-cta">Contact Us</a></li>
+                </ul>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== Page Header ===== -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Our Successful Projects</h1>
+            <p data-aos="fade-up" data-aos-delay="100">
+                Over 500 projects successfully completed in renewable energy
+            </p>
+            <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-en.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ===== Filter Section ===== -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-buttons" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    <span>All Projects</span>
+                </button>
+                <button class="filter-btn" data-filter="residential">
+                    <i class="fas fa-home"></i>
+                    <span>Residential</span>
+                </button>
+                <button class="filter-btn" data-filter="commercial">
+                    <i class="fas fa-building"></i>
+                    <span>Commercial</span>
+                </button>
+                <button class="filter-btn" data-filter="industrial">
+                    <i class="fas fa-industry"></i>
+                    <span>Industrial</span>
+                </button>
+                <button class="filter-btn" data-filter="government">
+                    <i class="fas fa-landmark"></i>
+                    <span>Government</span>
+                </button>
+                <button class="filter-btn" data-filter="agricultural">
+                    <i class="fas fa-tractor"></i>
+                    <span>Agricultural</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Projects Section ===== -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="industrial" data-aos="zoom-in">
+                    <div class="project-image">
+                        <span class="project-badge">Featured</span>
+                        <img src="assets/images/projects/SolarPowerPlanets.png" alt="5 MW Solar Power Plant">
+                        <div class="project-overlay">
+                            <a href="assets/images/projects/SolarPowerPlanets.png" class="project-overlay-btn glightbox">
+                                <i class="fas fa-search-plus"></i>
+                                View Gallery
+                            </a>
+                            <a href="#" class="project-overlay-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">
+                            <i class="fas fa-industry"></i>
+                            Industrial
+                        </span>
+                        <h3>5 MW Solar Power Plant</h3>
+                        <p>
+                            Massive project for clean energy generation in Riyadh's industrial zone, providing sufficient power for 800 industrial facilities.
+                        </p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Riyadh</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>5 MW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="residential" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="assets/images/projects/residential-solar-panels.png" alt="Solar-Powered Residential Complex">
+                        <div class="project-overlay">
+                            <a href="assets/images/projects/residential-solar-panels.png" class="project-overlay-btn glightbox">
+                                <i class="fas fa-search-plus"></i>
+                                View Gallery
+                            </a>
+                            <a href="#" class="project-overlay-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">
+                            <i class="fas fa-home"></i>
+                            Residential
+                        </span>
+                        <h3>Solar-Powered Residential Complex</h3>
+                        <p>
+                            Supplying 200 residential units with integrated solar systems, achieving annual savings of up to 70% on electricity bills.
+                        </p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Jeddah</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>1.2 MW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="commercial" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-image">
+                        <span class="project-badge">New</span>
+                        <img src="assets/images/projects/shopping-mall.jpg" alt="Shopping Mall">
+                        <div class="project-overlay">
+                            <a href="assets/images/projects/shopping-mall.jpg" class="project-overlay-btn glightbox">
+                                <i class="fas fa-search-plus"></i>
+                                View Gallery
+                            </a>
+                            <a href="#" class="project-overlay-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">
+                            <i class="fas fa-building"></i>
+                            Commercial
+                        </span>
+                        <h3>Solar Energy System for Shopping Mall</h3>
+                        <p>
+                            Installing a solar energy system on the roof of a large shopping mall, covering 85% of daily energy needs.
+                        </p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Dammam</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>2024</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>2.5 MW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="government" data-aos="zoom-in">
+                    <div class="project-image">
+                        <img src="assets/images/projects/university.jpg" alt="Government University">
+                        <div class="project-overlay">
+                            <a href="assets/images/projects/university.jpg" class="project-overlay-btn glightbox">
+                                <i class="fas fa-search-plus"></i>
+                                View Gallery
+                            </a>
+                            <a href="#" class="project-overlay-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">
+                            <i class="fas fa-landmark"></i>
+                            Government
+                        </span>
+                        <h3>Solar Energy Project for Government University</h3>
+                        <p>
+                            Providing solar energy systems for all university buildings (15 buildings), with high production capacity and significant annual savings.
+                        </p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Madinah</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>3 MW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="industrial" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="assets/images/projects/Production.png" alt="Production Factory">
+                        <div class="project-overlay">
+                            <a href="assets/images/projects/Production.png" class="project-overlay-btn glightbox">
+                                <i class="fas fa-search-plus"></i>
+                                View Gallery
+                            </a>
+                            <a href="#" class="project-overlay-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">
+                            <i class="fas fa-industry"></i>
+                            Industrial
+                        </span>
+                        <h3>Energy Solutions for Production Plant</h3>
+                        <p>
+                            Reduced energy costs by 60% through solar panels, with an advanced storage system for 24/7 operation.
+                        </p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Jubail</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>1.8 MW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="agricultural" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="assets/images/projects/farm.jpg" alt="Model Farm">
+                        <div class="project-overlay">
+                            <a href="assets/images/projects/farm.jpg" class="project-overlay-btn glightbox">
+                                <i class="fas fa-search-plus"></i>
+                                View Gallery
+                            </a>
+                            <a href="#" class="project-overlay-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">
+                            <i class="fas fa-tractor"></i>
+                            Agricultural
+                        </span>
+                        <h3>Solar Energy System for Model Farm</h3>
+                        <p>
+                            Operating water pumps and modern irrigation systems with solar energy, with significant savings in operating costs.
+                        </p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Hail</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>500 KW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card" data-category="residential" data-aos="zoom-in">
+                    <div class="project-image">
+                        <img src="assets/images/projects/residential-solar-panels.png" alt="Luxury Villa">
+                        <div class="project-overlay">
+                            <a href="assets/images/projects/residential-solar-panels.png" class="project-overlay-btn glightbox">
+                                <i class="fas fa-search-plus"></i>
+                                View Gallery
+                            </a>
+                            <a href="#" class="project-overlay-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">
+                            <i class="fas fa-home"></i>
+                            Residential
+                        </span>
+                        <h3>Solar Energy System for Luxury Villa</h3>
+                        <p>
+                            Complete Off-Grid system with storage batteries, providing full independence from the power grid with 100% efficiency.
+                        </p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Riyadh</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>2024</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>30 KW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card" data-category="commercial" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="assets/images/projects/hotel.jpg" alt="5-Star Hotel">
+                        <div class="project-overlay">
+                            <a href="assets/images/projects/hotel.jpg" class="project-overlay-btn glightbox">
+                                <i class="fas fa-search-plus"></i>
+                                View Gallery
+                            </a>
+                            <a href="#" class="project-overlay-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">
+                            <i class="fas fa-building"></i>
+                            Commercial
+                        </span>
+                        <h3>Renewable Energy Solutions for 5-Star Hotel</h3>
+                        <p>
+                            Hybrid system combining solar energy with grid power, saving 75% of annual electricity costs.
+                        </p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Makkah</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>1.5 MW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card" data-category="government" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="assets/images/projects/hospital.jpg" alt="Government Hospital">
+                        <div class="project-overlay">
+                            <a href="assets/images/projects/hospital.jpg" class="project-overlay-btn glightbox">
+                                <i class="fas fa-search-plus"></i>
+                                View Gallery
+                            </a>
+                            <a href="#" class="project-overlay-btn">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">
+                            <i class="fas fa-landmark"></i>
+                            Government
+                        </span>
+                        <h3>Energy System for Government Hospital</h3>
+                        <p>
+                            Solar energy system with full backup to ensure uninterrupted power supply, with millions in annual savings.
+                        </p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Taif</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>2 MW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section" data-aos="fade-up">
+                <button class="load-more-btn">
+                    <i class="fas fa-sync-alt"></i>
+                    Load More Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Stats Section ===== -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 style="font-size: 42px; margin-bottom: 15px; color: var(--white);">Our Achievements in Numbers</h2>
+                <p style="font-size: 18px; opacity: 0.9; color: var(--white);">
+                    We take pride in our accomplishments over the years
+                </p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Successfully Completed Projects</div>
+                </div>
+                
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="stat-number">120</div>
+                    <div class="stat-label">MW Energy Generated</div>
+                </div>
+                
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="stat-number">350+</div>
+                    <div class="stat-label">Fully Satisfied Clients</div>
+                </div>
+                
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="stat-number">50K</div>
+                    <div class="stat-label">Tons CO₂ Emissions Reduced</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Testimonials Section ===== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Client Reviews</span>
+                <h2 class="section-title">What Our Clients Say?</h2>
+                <p class="section-description">
+                    We take pride in our clients' trust and complete satisfaction with our services
+                </p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-text">
+                        "Excellent experience from start to finish. The team is highly professional and the system works with great efficiency. 
+                        We saved over 70% on electricity bills in just 6 months!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="assets/images/team/author-1.jpg" alt="Mohammed Al-Otaibi">
+                        </div>
+                        <div class="author-info">
+                            <h4>Mohammed Al-Otaibi</h4>
+                            <p>Villa Owner - Riyadh</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-text">
+                        "SolarNova executed a massive project for us with utmost professionalism. High quality, competitive prices, 
+                        and excellent technical support. I highly recommend them for any renewable energy project."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="assets/images/team/author-2.jpg" alt="Sarah Al-Dosari">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Al-Dosari</h4>
+                            <p>Shopping Mall Manager - Jeddah</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-text">
+                        "A real investment worth every riyal. The system has been working efficiently for two years without any problems. 
+                        Regular maintenance service is excellent and monthly reports help us with monitoring."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="assets/images/team/author-3.jpg" alt="Khaled Al-Malki">
+                        </div>
+                        <div class="author-info">
+                            <h4>Khaled Al-Malki</h4>
+                            <p>Factory Manager - Dammam</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA Section ===== -->
+    <section class="cta-section">
+        <div class="cta-content" data-aos="fade-up">
+            <h2>Want a Similar Project?</h2>
+            <p>
+                Contact us now for a free consultation and comprehensive study for your project
+            </p>
+            <div class="hero-buttons">
+                <a href="contact-en.html" class="btn btn-primary">
+                    Start Your Project Now
+                    <i class="fas fa-rocket"></i>
+                </a>
+                <a href="services-en.html" class="btn btn-outline">
+                    Explore Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <a href="index-en.html" class="logo" style="color: white; margin-bottom: 20px; display: inline-block;">
+                        <div class="logo-text">
+                            <span class="main" style="color: var(--secondary);">SolarNova</span>
+                            <span class="sub">RENEWABLE ENERGY</span>
+                        </div>
+                    </a>
+                    <p>
+                        We are a leading company in renewable energy, striving to provide clean and sustainable energy solutions that contribute to building a better future for generations to come.
+                    </p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index-en.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about-en.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="projects-en.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="blogs-en.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-section">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Solar Energy</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Wind Energy</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Energy Storage</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Maintenance</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact-section">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Riyadh, Saudi Arabia</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+966 12 345 6789</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@solarnova.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Sun - Thu: 8AM - 6PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 SolarNova Energy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- GLightbox -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize GLightbox
+        const lightbox = GLightbox({
+            selector: '.glightbox'
+        });
+        
+        // Filter Projects
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.classList.remove('hidden');
+                        setTimeout(() => {
+                            card.style.display = 'block';
+                        }, 10);
+                    } else {
+                        if (card.getAttribute('data-category') === filterValue) {
+                            card.classList.remove('hidden');
+                            setTimeout(() => {
+                                card.style.display = 'block';
+                            }, 10);
+                        } else {
+                            card.style.display = 'none';
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Load More Button (Demo)
+        document.querySelector('.load-more-btn').addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-check"></i> All Projects Displayed';
+                this.disabled = true;
+                this.style.opacity = '0.6';
+                this.style.cursor = 'not-allowed';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

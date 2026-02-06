@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about SolarNova - Leading renewable energy company since 2009">
+    <title>About Us - SolarNova Energy</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* About Specific Styles */
+        .page-header {
+            background: linear-gradient(135deg, rgba(255, 152, 67, 0.92) 0%, rgba(255, 221, 149, 0.88) 100%),
+                        url('assets/images/about-header-bg.jpg') center/cover no-repeat;
+            padding: 120px 0 80px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            justify-content: center;
+            margin-bottom: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb-item {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--white);
+        }
+        
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '›';
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* About Content */
+        .about-intro {
+            padding: 80px 0;
+        }
+        
+        .about-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-intro-image {
+            position: relative;
+        }
+        
+        .about-intro-image img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-intro-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .about-intro-content h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .about-intro-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .highlight-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Mission & Vision */
+        .mission-vision {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .mv-card {
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+        
+        .mv-card:nth-child(1) {
+            border-top-color: var(--primary);
+        }
+        
+        .mv-card:nth-child(2) {
+            border-top-color: var(--dark-blue);
+        }
+        
+        .mv-card:nth-child(3) {
+            border-top-color: var(--accent);
+        }
+        
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .mv-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+            color: var(--white);
+        }
+        
+        .mv-card:nth-child(2) .mv-icon {
+            background: var(--gradient-blue);
+        }
+        
+        .mv-card:nth-child(3) .mv-icon {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--dark-blue) 100%);
+        }
+        
+        .mv-card h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .mv-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: var(--gradient-blue);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .stat-box {
+            padding: 30px;
+        }
+        
+        .stat-box i {
+            font-size: 48px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .stat-box .number {
+            font-size: 48px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        
+        .stat-box .label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .team-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-image {
+            position: relative;
+            overflow: hidden;
+            height: 320px;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+        
+        .team-social {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-social {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .team-info h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .team-info .position {
+            color: var(--primary);
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .team-info p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        /* Timeline */
+        .timeline-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            width: calc(50% - 40px);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 40px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 40px;
+        }
+        
+        .timeline-year {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            box-shadow: 0 0 0 8px #f8f9fa;
+        }
+        
+        .timeline-content h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .timeline-content p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-intro-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .timeline::before {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 120px);
+                margin-left: 40px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-year {
+                width: 60px;
+                height: 60px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .about-intro-content h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Top Bar ===== -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@solarnova.com">info@solarnova.com</a>
+                </div>
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+966123456789">+966 12 345 6789</a>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="about.html">العربية</a>
+                    <a href="about-en.html" class="active">English</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Header / Navbar ===== -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index-en.html" class="logo">
+                    <div class="logo-text">
+                        <span class="main">SolarNova</span>
+                        <span class="sub">RENEWABLE ENERGY</span>
+                    </div>
+                </a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index-en.html">Home</a></li>
+                    <li><a href="about-en.html" class="active">About</a></li>
+                    <li><a href="services-en.html">Services</a></li>
+                    <li><a href="projects-en.html">Projects</a></li>
+                    <li><a href="blogs-en.html">Blog</a></li>
+                    <li><a href="contact-en.html" class="nav-cta">Contact Us</a></li>
+                </ul>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== Page Header ===== -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">About Us</h1>
+            <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="100">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index-en.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">About</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ===== About Intro ===== -->
+    <section class="about-intro">
+        <div class="container">
+            <div class="about-intro-grid">
+                <div class="about-intro-image" data-aos="fade-right">
+                    <img src="assets/images/about/company-building.jpg" alt="SolarNova Company Building">
+                </div>
+                <div class="about-intro-content" data-aos="fade-left">
+                    <span class="section-badge">Our Story</span>
+                    <h2>Renewable Energy Pioneers Since 2009</h2>
+                    <p>
+                        <span class="highlight-text">SolarNova Energy</span> is a leading renewable and solar energy company in the Middle East, 
+                        founded in 2009 with a clear vision to provide clean and sustainable energy solutions.
+                    </p>
+                    <p>
+                        We pride ourselves on delivering comprehensive services including design, installation, and maintenance of solar and renewable energy systems 
+                        for residential, commercial, and industrial sectors.
+                    </p>
+                    <p>
+                        We work with a team of specialized engineers and technicians who possess extensive experience and internationally certified credentials, 
+                        using the latest global technologies to ensure the highest levels of efficiency and quality.
+                    </p>
+                    <p>
+                        We have successfully completed over <span class="highlight-text">500 projects</span> across the Kingdom and the Gulf region, 
+                        actively contributing to achieving Saudi Vision 2030 towards environmental sustainability.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Mission & Vision ===== -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Our Values</span>
+                <h2 class="section-title">Our Vision, Mission & Values</h2>
+                <p class="section-description">
+                    We believe that clean energy is the future of humanity, and we work passionately to achieve this vision
+                </p>
+            </div>
+            
+            <div class="mv-grid">
+                <div class="mv-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>
+                        To be the leading renewable energy company in the region, contributing to building a sustainable future 
+                        free from carbon emissions, where clean energy becomes accessible to everyone.
+                    </p>
+                </div>
+                
+                <div class="mv-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>
+                        To provide high-quality solar and renewable energy solutions at competitive prices, with exceptional customer service, 
+                        contributing to environmental protection and achieving economic sustainability for our clients.
+                    </p>
+                </div>
+                
+                <div class="mv-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="mv-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>
+                        Quality and innovation in everything we deliver, transparency and integrity in dealings, commitment to deadlines, 
+                        continuous development, and environmental and social responsibility.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Stats Section ===== -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 data-aos="fade-up" style="font-size: 42px; margin-bottom: 20px; color: var(--white);">
+                Our Numbers Speak for Themselves
+            </h2>
+            <p data-aos="fade-up" data-aos-delay="100" style="font-size: 18px; opacity: 0.9;">
+                Our achievements over the past years
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-project-diagram"></i>
+                    <span class="number">500+</span>
+                    <span class="label">Completed Projects</span>
+                </div>
+                
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-users"></i>
+                    <span class="number">350+</span>
+                    <span class="label">Happy Clients</span>
+                </div>
+                
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-bolt"></i>
+                    <span class="number">120</span>
+                    <span class="label">MW Energy Generated</span>
+                </div>
+                
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-award"></i>
+                    <span class="number">25+</span>
+                    <span class="label">Awards & Honors</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Timeline ===== -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Our Journey</span>
+                <h2 class="section-title">The Path of Success</h2>
+                <p class="section-description">
+                    Our evolution from a startup to a leader in renewable energy
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>Foundation & Launch</h3>
+                        <p>The company was founded with a clear vision to provide clean energy solutions. We started with a small team and one project.</p>
+                    </div>
+                    <div class="timeline-year">2009</div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>Regional Expansion</h3>
+                        <p>We opened new branches in 3 major cities and reached 50 successful projects.</p>
+                    </div>
+                    <div class="timeline-year">2013</div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>International Partnerships</h3>
+                        <p>We secured strategic partnerships with major global companies in the solar energy sector.</p>
+                    </div>
+                    <div class="timeline-year">2017</div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>Excellence Award</h3>
+                        <p>We won the Best Renewable Energy Company award in the region and completed 300 projects.</p>
+                    </div>
+                    <div class="timeline-year">2020</div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-content">
+                        <h3>Leadership & Innovation</h3>
+                        <p>We surpassed 500 projects and launched new technologies in energy storage and artificial intelligence.</p>
+                    </div>
+                    <div class="timeline-year">2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Team Section ===== -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Our Team</span>
+                <h2 class="section-title">Leaders of Change Towards the Future</h2>
+                <p class="section-description">
+                    A group of experts and specialists who work passionately to achieve our vision
+                </p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-image">
+                        <img src="assets/images/team/CEO.jpg" alt="Ahmed Al-Salem">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Ahmed Al-Salem</h3>
+                        <p class="position">Chief Executive Officer</p>
+                        <p>20 years of experience in renewable energy and strategic management</p>
+                    </div>
+                </div>
+                
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-image">
+                        <img src="assets/images/team/Engineering Director.jpg" alt="Fatima Al-Mutairi">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Fatima Al-Mutairi</h3>
+                        <p class="position">Engineering Director</p>
+                        <p>Certified engineer specialized in solar energy systems design</p>
+                    </div>
+                </div>
+                
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-image">
+                        <img src="assets/images/team/Project Manager.jpg" alt="Khaled Al-Ghamdi">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Khaled Al-Ghamdi</h3>
+                        <p class="position">Projects Manager</p>
+                        <p>Expert in managing large-scale projects and quality assurance</p>
+                    </div>
+                </div>
+                
+                <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-image">
+                        <img src="assets/images/team/Marketing Director.jpg" alt="Noura Al-Otaibi">
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Noura Al-Otaibi</h3>
+                        <p class="position">Marketing Director</p>
+                        <p>Specialist in digital marketing strategies and public relations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA Section ===== -->
+    <section class="cta-section">
+        <div class="cta-content" data-aos="fade-up">
+            <h2>Ready to Join the Clean Energy Revolution?</h2>
+            <p>
+                Let us help you take the first step towards a more sustainable future
+            </p>
+            <div class="hero-buttons">
+                <a href="contact-en.html" class="btn btn-primary">
+                    Contact Us Now
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="projects-en.html" class="btn btn-outline">
+                    View Our Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <a href="index-en.html" class="logo" style="color: white; margin-bottom: 20px; display: inline-block;">
+                        <div class="logo-text">
+                            <span class="main" style="color: var(--secondary);">SolarNova</span>
+                            <span class="sub">RENEWABLE ENERGY</span>
+                        </div>
+                    </a>
+                    <p>
+                        We are a leading company in renewable energy, striving to provide clean and sustainable energy solutions that contribute to building a better future for generations to come.
+                    </p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index-en.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about-en.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="projects-en.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="blogs-en.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-section">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Solar Energy</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Wind Energy</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Energy Storage</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Maintenance</a></li>
+                        <li><a href="services-en.html"><i class="fas fa-chevron-right"></i> Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact-section">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Riyadh, Saudi Arabia</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+966 12 345 6789</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@solarnova.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Sun - Thu: 8AM - 6PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 SolarNova Energy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
